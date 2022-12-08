@@ -1,14 +1,10 @@
-def part_one() -> int:
-    sequence = []
+def part_one_and_two() -> None:
     filesystem_dict = {}
     current_directory = ""
     to_remove = []
     with open("input.txt") as f:
         for line in f:
             command = line.rstrip("\n").split(" ")
-            print(command)
-            print(current_directory)
-            print(to_remove)
             if command[1] == "cd":
                 if command[2] == "/":
                     current_directory = ""
@@ -41,16 +37,10 @@ def part_one() -> int:
         for key, value in folders_sizes.items():
             if value <= 100000:
                 final_sum += value
-        print(folders_sizes)
-        print(final_sum)
-
-
-def part_two() -> int:
-    with open("input.txt") as f:
-        pass
-    return None
+        print("Final sum of directories part one :", final_sum)
+        delete_size = min([a for a in folders_sizes.values() if a > 30000000 - (70000000-folders_sizes["/"])])
+        print("Size of folder to delete for update :", delete_size)
 
 
 if __name__ == "__main__":
-    part_one()
-    part_two()
+    part_one_and_two()
