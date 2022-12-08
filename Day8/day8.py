@@ -36,7 +36,9 @@ def part_one() -> None:
                 view_distances.append(view_distance)
             scenic_scores_map.append(np.prod(view_distances))
     scenic_scores_map = np.array(scenic_scores_map).reshape(carte.shape[0], carte.shape[1])
+    print(visible_trees)
     print(np.max(scenic_scores_map))
+
 
 if __name__ == "__main__":
     part_one()
